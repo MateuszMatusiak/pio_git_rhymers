@@ -1,7 +1,11 @@
 package edu.kis.vh.nursery;
 
 public class IntArrayStack {
-    private int[] numbers = new int[12];
+    public IntArrayStack(int size) {
+        this.size = size ;
+    }
+    private int size;
+    private final int[] numbers = new int[size] ;
     public int total = -1;
 
     public void countIn(int in) {
@@ -14,7 +18,7 @@ public class IntArrayStack {
     }
 
     public boolean isFull() {
-        return total == 11;
+        return total == size-1;
     }
 
     protected int peekaboo() {
