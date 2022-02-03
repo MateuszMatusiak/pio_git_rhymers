@@ -1,35 +1,40 @@
-package edu.kis.vh.nursery;
+package edu.kis.vh.nursery.list;
 
-public class IntArrayStack {
+public class IntArrayStack implements ListInterface {
     public IntArrayStack(int size) {
-        this.size = size ;
+        IntArrayStack.size = size ;
     }
-    private int size;
+    public static int size=12;
     private final int[] numbers = new int[size] ;
     public int total = -1;
 
+    @Override
     public void countIn(int in) {
         if (!isFull())
             numbers[++total] = in;
     }
 
+    @Override
     public boolean callCheck() {
         return total == -1;
     }
 
+    @Override
     public boolean isFull() {
         return total == size-1;
     }
 
-    protected int peekaboo() {
+    @Override
+    public int peekaboo() {
         if (callCheck())
-            return -1;
+            return errVal;
         return numbers[total];
     }
 
+    @Override
     public int countOut() {
         if (callCheck())
-            return -1;
+            return errVal;
         return numbers[total--];
     }
 }

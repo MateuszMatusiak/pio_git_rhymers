@@ -1,11 +1,14 @@
 package edu.kis.vh.nursery;
 
 
+import edu.kis.vh.nursery.list.IntArrayStack;
+import edu.kis.vh.nursery.list.IntLinkedList;
+
 public class DefaultCountingOutRhymer {
-    IntArrayStack arr;
+    IntLinkedList arr;
 
     public DefaultCountingOutRhymer() {
-        arr = new IntArrayStack(12);
+        arr = new IntLinkedList();
     }
 
     public void countIn(int in) {
