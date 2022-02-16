@@ -30,4 +30,5 @@ public class DefaultCountingOutRhymer {
     public int countOut() {
         return arr.countOut();
     }
+
 }
