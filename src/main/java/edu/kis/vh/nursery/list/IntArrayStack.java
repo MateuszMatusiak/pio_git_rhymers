@@ -8,7 +8,6 @@ public class IntArrayStack implements ListInterface {
     private final int[] numbers = new int[size] ;
     public int total = -1;
 
-
     @Override
     public void countIn(int in) {
         if (!isFull())
