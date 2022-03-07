@@ -6,5 +6,5 @@ public interface ListInterface {
     boolean isFull();
     int peekaboo();
     int countOut();
-    int errVal = 0;
+    final int ERR_VAL = 0;
 }

@@ -2,7 +2,7 @@ package edu.kis.vh.nursery.list;
 
 public class IntLinkedList implements ListInterface {
 
-	Node last;
+	private Node last;
 
 	@Override
 	public void countIn(int i) {
@@ -26,14 +26,14 @@ public class IntLinkedList implements ListInterface {
 	@Override
 	public int peekaboo() {
 		if (callCheck())
-			return errVal;
+			return ERR_VAL;
 		return last.value;
 	}
 
 	@Override
 	public int countOut() {
 		if (callCheck())
-			return errVal;
+			return ERR_VAL;
 		int ret = last.value;
 		last = last.prev;
 		return ret;

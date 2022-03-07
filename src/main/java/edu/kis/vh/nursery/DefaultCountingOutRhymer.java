@@ -3,9 +3,10 @@ package edu.kis.vh.nursery;
 
 import edu.kis.vh.nursery.list.IntArrayStack;
 import edu.kis.vh.nursery.list.IntLinkedList;
+import edu.kis.vh.nursery.list.ListInterface;
 
 public class DefaultCountingOutRhymer {
-    IntLinkedList arr;
+    private final ListInterface arr;
 
     public DefaultCountingOutRhymer() {
         arr = new IntLinkedList();
@@ -23,7 +24,7 @@ public class DefaultCountingOutRhymer {
         return arr.isFull();
     }
 
-    public int peekaboo() {
+    protected int peekaboo() {
         return arr.peekaboo();
     }
 

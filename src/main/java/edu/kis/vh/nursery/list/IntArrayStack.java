@@ -1,12 +1,15 @@
 package edu.kis.vh.nursery.list;
 
 public class IntArrayStack implements ListInterface {
-    public IntArrayStack(int size) {
-        IntArrayStack.size = size ;
-    }
-    public static int size=12;
-    private final int[] numbers = new int[size] ;
+
+    public final int size;
+    private final int[] numbers;
     public int total = -1;
+
+    public IntArrayStack(int size) {
+        this.size = size;
+        this.numbers = new int[size];
+    }
 
     @Override
     public void countIn(int in) {
@@ -21,20 +24,20 @@ public class IntArrayStack implements ListInterface {
 
     @Override
     public boolean isFull() {
-        return total == size-1;
+        return total == size - 1;
     }
 
     @Override
     public int peekaboo() {
         if (callCheck())
-            return errVal;
+            return ERR_VAL;
         return numbers[total];
     }
 
     @Override
     public int countOut() {
         if (callCheck())
-            return errVal;
+            return ERR_VAL;
         return numbers[total--];
     }
 }
