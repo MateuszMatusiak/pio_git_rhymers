@@ -5,7 +5,7 @@ public class IntLinkedList implements ListInterface {
 	private Node last;
 
 	@Override
-	public void countIn(int i) {
+	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
@@ -15,7 +15,7 @@ public class IntLinkedList implements ListInterface {
 		}
 	}
 	@Override
-	public boolean callCheck() {
+	public boolean isEmpty() {
 		return last == null;
 	}
 	@Override
@@ -24,15 +24,15 @@ public class IntLinkedList implements ListInterface {
 	}
 
 	@Override
-	public int peekaboo() {
-		if (callCheck())
+	public int lastElementValue() {
+		if (isEmpty())
 			return ERR_VAL;
 		return last.value;
 	}
 
 	@Override
-	public int countOut() {
-		if (callCheck())
+	public int pop() {
+		if (isEmpty())
 			return ERR_VAL;
 		int ret = last.value;
 		last = last.prev;

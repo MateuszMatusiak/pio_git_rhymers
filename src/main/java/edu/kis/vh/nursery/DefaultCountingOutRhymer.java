@@ -1,7 +1,6 @@
 package edu.kis.vh.nursery;
 
 
-import edu.kis.vh.nursery.list.IntArrayStack;
 import edu.kis.vh.nursery.list.IntLinkedList;
 import edu.kis.vh.nursery.list.ListInterface;
 
@@ -13,11 +12,11 @@ public class DefaultCountingOutRhymer {
     }
 
     public void countIn(int in) {
-        arr.countIn(in);
+        arr.push(in);
     }
 
     public boolean callCheck() {
-        return arr.callCheck();
+        return arr.isEmpty();
     }
 
     public boolean isFull() {
@@ -25,11 +24,11 @@ public class DefaultCountingOutRhymer {
     }
 
     protected int peekaboo() {
-        return arr.peekaboo();
+        return arr.lastElementValue();
     }
 
     public int countOut() {
-        return arr.countOut();
+        return arr.pop();
     }
 
 }

@@ -5,38 +5,41 @@ public class IntArrayStack implements ListInterface {
     public final int size;
     private final int[] numbers;
     public int total = -1;
+    public final int EMPTY = -1;
+    public final int CAPACITY;
 
     public IntArrayStack(int size) {
         this.size = size;
         this.numbers = new int[size];
+        this.CAPACITY = size-1;
     }
 
     @Override
-    public void countIn(int in) {
+    public void push(int in) {
         if (!isFull())
             numbers[++total] = in;
     }
 
     @Override
-    public boolean callCheck() {
-        return total == -1;
+    public boolean isEmpty() {
+        return total == EMPTY;
     }
 
     @Override
     public boolean isFull() {
-        return total == size - 1;
+        return total == CAPACITY;
     }
 
     @Override
-    public int peekaboo() {
-        if (callCheck())
+    public int lastElementValue() {
+        if (isEmpty())
             return ERR_VAL;
         return numbers[total];
     }
 
     @Override
-    public int countOut() {
-        if (callCheck())
+    public int pop() {
+        if (isEmpty())
             return ERR_VAL;
         return numbers[total--];
     }
