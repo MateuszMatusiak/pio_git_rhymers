@@ -3,13 +3,11 @@ package edu.kis.vh.nursery;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static edu.kis.vh.nursery.list.ListInterface.ERR_VAL;
-
 public class RhymersJUnitTest {
 
 	@Test
 	public void testCountIn() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
 		int testValue = 4;
 		rhymer.countIn(testValue);
 
@@ -19,22 +17,37 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testCallCheck() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
 		boolean result = rhymer.callCheck();
-		Assert.assertTrue(result);
+		Assert.assertEquals(true, result);
 
 		rhymer.countIn(888);
 
 		result = rhymer.callCheck();
-		Assert.assertFalse(result);
+		Assert.assertEquals(false, result);
+	}
+
+	@Test
+	public void testIsFull() {
+		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+		final int STACK_CAPACITY = 12;
+		for (int i = 0; i < STACK_CAPACITY; i++) {
+			boolean result = rhymer.isFull();
+			Assert.assertEquals(false, result);
+			rhymer.countIn(888);
+		}
+
+		boolean result = rhymer.isFull();
+		Assert.assertEquals(true, result);
 	}
 
 	@Test
 	public void testPeekaboo() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+		final int EMPTY_STACK_VALUE = -1;
 
 		int result = rhymer.peekaboo();
-		Assert.assertEquals(ERR_VAL, result);
+		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 
 		int testValue = 4;
 		rhymer.countIn(testValue);
@@ -47,8 +60,8 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testCountOut() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = ERR_VAL;
+		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+		final int EMPTY_STACK_VALUE = -1;
 
 		int result = rhymer.countOut();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
