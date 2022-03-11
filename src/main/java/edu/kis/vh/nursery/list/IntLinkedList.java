@@ -1,10 +1,10 @@
 package edu.kis.vh.nursery.list;
 
-public class IntLinkedList implements ListInterface {
+public class IntLinkedList {
 
-	private Node last;
+	Node last;
+	int i;
 
-	@Override
 	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
@@ -14,26 +14,24 @@ public class IntLinkedList implements ListInterface {
 			last = last.next;
 		}
 	}
-	@Override
+
 	public boolean isEmpty() {
 		return last == null;
 	}
-	@Override
+
 	public boolean isFull() {
 		return false;
 	}
 
-	@Override
-	public int lastElementValue() {
+	public int top() {
 		if (isEmpty())
-			return ERR_VAL;
+			return -1;
 		return last.value;
 	}
 
-	@Override
 	public int pop() {
 		if (isEmpty())
-			return ERR_VAL;
+			return -1;
 		int ret = last.value;
 		last = last.prev;
 		return ret;
