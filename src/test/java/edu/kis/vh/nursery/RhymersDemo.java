@@ -15,7 +15,6 @@ class RhymersDemo {
 		testRhymers(factory);
 		testRhymers(listFactory);
 		testRhymers(arrayFactory);
-
 	}
 
 	private static void testRhymers(RhymersFactory factory) {
