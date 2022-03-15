@@ -4,14 +4,24 @@ public class IntArrayStack implements ListInterface {
 
     public final int size;
     private final int[] numbers;
-    public int total = -1;
+    public int total;
+    public final int DEFAULT_SIZE = 12;
     public final int EMPTY = -1;
     public final int CAPACITY;
+
+    public IntArrayStack() {
+        this.size = DEFAULT_SIZE;
+        this.numbers = new int[size];
+        this.CAPACITY = size - 1;
+        this.total = EMPTY;
+    }
+
 
     public IntArrayStack(int size) {
         this.size = size;
         this.numbers = new int[size];
-        this.CAPACITY = size-1;
+        this.CAPACITY = size - 1;
+        this.total = EMPTY;
     }
 
     @Override

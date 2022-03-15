@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.list.ListInterface;
+
 public class HanoiRhymer extends DefaultCountingOutRhymer {
 
     private int totalRejected = 0;
@@ -9,8 +11,12 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
     }
 
     public HanoiRhymer() {
+        super();
     }
-
+    public HanoiRhymer(ListInterface arr)
+    {
+        super(arr);
+    }
     @Override
     public void countIn(int in) {
         if (!callCheck() && in > peekaboo())
