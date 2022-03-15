@@ -9,9 +9,9 @@ public class IntLinkedList implements ListInterface {
 		if (last == null)
 			last = new Node(i);
 		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+			last.setNext(new Node(i));
+			last.getNext().setPrev(last);
+			last = last.getNext();
 		}
 	}
 	@Override
@@ -27,15 +27,15 @@ public class IntLinkedList implements ListInterface {
 	public int lastElementValue() {
 		if (isEmpty())
 			return ERR_VAL;
-		return last.value;
+		return last.getValue();
 	}
 
 	@Override
 	public int pop() {
 		if (isEmpty())
 			return ERR_VAL;
-		int ret = last.value;
-		last = last.prev;
+		int ret = last.getValue();
+		last = last.getPrev();
 		return ret;
 	}
 

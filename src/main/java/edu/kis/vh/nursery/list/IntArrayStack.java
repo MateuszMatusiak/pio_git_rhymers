@@ -5,11 +5,12 @@ public class IntArrayStack implements ListInterface {
     public final int size;
     private final int[] numbers;
     public int total;
+    public final int DEFAULT_SIZE = 12;
     public final int EMPTY = -1;
     public final int CAPACITY;
 
     public IntArrayStack() {
-        this.size = 11;
+        this.size = DEFAULT_SIZE;
         this.numbers = new int[size];
         this.CAPACITY = size - 1;
         this.total = EMPTY;
