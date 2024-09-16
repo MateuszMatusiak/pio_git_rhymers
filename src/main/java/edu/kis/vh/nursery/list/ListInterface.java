@@ -1,10 +1,10 @@
 package edu.kis.vh.nursery.list;
 
 public interface ListInterface {
-    void countIn(int i);
-    boolean callCheck();
+    void push(int i);
+    boolean isEmpty();
     boolean isFull();
-    int peekaboo();
-    int countOut();
-    int errVal =0;
+    int lastElementValue();
+    int pop();
+    final int ERR_VAL = 0;
 }

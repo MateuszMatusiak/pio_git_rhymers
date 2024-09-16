@@ -2,20 +2,20 @@ package edu.kis.vh.nursery.list;
 
 public class IntLinkedList implements ListInterface {
 
-	Node last;
+	private Node last;
 
 	@Override
-	public void countIn(int i) {
+	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+			last.setNext(new Node(i));
+			last.getNext().setPrev(last);
+			last = last.getNext();
 		}
 	}
 	@Override
-	public boolean callCheck() {
+	public boolean isEmpty() {
 		return last == null;
 	}
 	@Override
@@ -24,18 +24,18 @@ public class IntLinkedList implements ListInterface {
 	}
 
 	@Override
-	public int peekaboo() {
-		if (callCheck())
-			return errVal;
-		return last.value;
+	public int lastElementValue() {
+		if (isEmpty())
+			return ERR_VAL;
+		return last.getValue();
 	}
 
 	@Override
-	public int countOut() {
-		if (callCheck())
-			return errVal;
-		int ret = last.value;
-		last = last.prev;
+	public int pop() {
+		if (isEmpty())
+			return ERR_VAL;
+		int ret = last.getValue();
+		last = last.getPrev();
 		return ret;
 	}
 
